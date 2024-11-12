@@ -38,7 +38,7 @@ export class TourDetailComponent implements OnInit {
   cartDetails!: CartDetail[];
 
   rates: Rate[] = [];
-  rateAll!:Rate[];
+  rateAll:Rate[] = [];
   countRate!:number;
 
   itemsComment:number = 3;

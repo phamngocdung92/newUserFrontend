@@ -248,26 +248,33 @@
     </div>
   </div> -->
 <div class="modal fade" tabindex="-1" role="dialog" [ngClass]="{'show': isGalleryVisible}" style="display: block;" *ngIf="isGalleryVisible">
-  <div class="modal-dialog" role="document">
+  <div class="" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Gallery</h5>
+        <h5 class="modal-title">Images Gallery</h5>
         <button type="button" class="close" (click)="closeGallery()">
-          <span>&times;</span>
+          <span style="font-size: 30px; font-weight: 100;">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <!-- Display the current image -->
-        <div class="image-container">
-          <img [src]="tourImageList[currentImageIndex]" alt="Tour Image" style="width: 100%; height: auto; margin-bottom: 10px;" />
-        </div>
-
-        <!-- Navigation buttons -->
-        <div class="navigation-buttons">
-          <button type="button" class="btn btn-secondary" (click)="previousImage()">Previous</button>
-          <button type="button" class="btn btn-secondary" (click)="nextImage()">Next</button>
-        </div>
+      <div class="blurry">
+        <div class="modal-body">
+            <!-- Display the current image -->
+            <div class="image-container">
+              <img [src]="tourImageList[currentImageIndex]" alt="Tour Image" style="width: auto; height: 600px; margin-bottom: 10px;" />
+            </div>
+    
+            <!-- Navigation buttons -->
+            <div class="navigation-buttons">
+                <button type="button" class="nav-btn prev-btn" (click)="previousImage()">
+                  <span class="nav-arrow">‹</span>
+                </button>
+                <button type="button" class="nav-btn next-btn" (click)="nextImage()">
+                  <span class="nav-arrow">›</span>
+                </button>
+              </div>
+          </div>
       </div>
+      
     </div>
   </div>
 </div>

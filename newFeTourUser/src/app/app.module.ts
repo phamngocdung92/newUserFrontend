@@ -32,16 +32,18 @@ import { AuthGuard } from './guard/auth.guard';
 import { OrderModule } from 'ngx-order-pipe';
 import { NgxPayPalModule } from 'ngx-paypal';
 
+import { AppRoutingModule } from './app-routing.module';
+
 
 const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'all-tour', component: AllTourComponent },
-  { path: 'by-category/:id', component: ByCategoryComponent },
+  // { path: 'by-category/:id', component: ByCategoryComponent },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'contact', component: ContactComponent },
-  { path: 'tour-detail/:id', component: TourDetailComponent },
+  // { path: 'tour-detail/:id', component: TourDetailComponent },
   { path: 'search/:keyword', component: SearchComponent },
   { path: 'search', component: AllTourComponent },
   { path: 'favorites', component: FavoriteComponent, canActivate: [AuthGuard] },
@@ -74,6 +76,7 @@ const routes: Routes = [
     AboutComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     SlickCarouselModule,

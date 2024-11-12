@@ -48,7 +48,8 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  height: 70vh; /* Set max height for the body */
+  height: 90vh; /* Set max height for the body */
+  background-color: #444;
 }
 
 /* Image Container */
@@ -59,52 +60,51 @@
   margin-bottom: 10px;
 }
 
-/* Navigation Buttons */
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
   position: absolute;
   top: 50%;
   width: 100%;
-  transform: translateY(-50%); /* Center vertically */
-  padding: 0 10px; /* Space from edges */
-  z-index: 100; /* Ensure buttons are on top of the image */
+  transform: translateY(-50%);
+  padding: 0 20px;
+  z-index: 100;
+  pointer-events: none; /* Allows clicking through the container */
 }
 
-/* Previous Button (Left) */
-.prev-button {
-  position: absolute;
-  left: 10px;
-  padding: 10px 20px;
-  background-color: #000;
-  color: white;
+.nav-btn {
+  width: 50px;
+  height: 50px;
   border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
   cursor: pointer;
-}
-
-.prev-button:hover {
-  background-color: #444;
-}
-
-/* Next Button (Right) */
-.next-button {
-  position: absolute;
-  right: 10px;
-  padding: 10px 20px;
-  background-color: #000;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.next-button:hover {
-  background-color: #444;
-}
-
-/* Modal Styling */
-.image-container {
+  transition: all 0.3s ease;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: center;
+  pointer-events: auto; /* Re-enable clicking on buttons */
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.nav-btn:active {
+  transform: scale(0.95);
+}
+
+.nav-arrow {
+  color: white;
+  font-size: 32px;
+  line-height: 1;
+  user-select: none;
+  display: block;
+  margin-top: -2px; /* Fine-tune vertical alignment */
+}
+.nav-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }

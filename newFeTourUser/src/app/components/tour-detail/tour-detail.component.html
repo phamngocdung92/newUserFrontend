@@ -49,6 +49,7 @@
                             </div>
                             <div class="ps-product__shopping">
                                 <a class="ps-btn ps-btn--black" href="javascript:void(0);" (click)="addCart(tour.tourId, tour.price*(1 - tour.discount/100))">Thêm Giỏ Hàng</a>
+                                <a href="javascript:void(0);" class="ps-btn ps-btn--black" (click)="getTourImageList(tour.tourId)">Xem Gallery</a>
                                 <div class="ps-product__actions">
                                     <a href="javascript:void(0);" (click)="toggleLike(tour.tourId)"><i style="color: #ffcc23;" class="icon-heart"></i></a> {{totalLike}} lượt thích
                                 </div>
@@ -132,10 +133,7 @@
                     <p><i class="icon-receipt"></i> Minh bạch: Tất cả thông tin về tour đều được ghi rõ trong hóa đơn</p>
                     <p><i class="icon-credit-card"></i> Thanh toán dễ dàng: Chọn cách thức thanh toán phù hợp với bạn nhất</p>
                 </aside>
-                <aside class="widget widget_sell-on-site">
-                    <p><i class="icon-store"></i> Bán trên Slack?<a href="#"> Đăng ký ngay !</a></p>
-                </aside>
-                <aside class="widget widget_ads"><a href="#"><img src="img/ads/product-ads.png" alt=""></a></aside>
+                
             </div>
         </div>
 
@@ -230,3 +228,46 @@
         <i class="fa fa-star"></i>
     </span>
 </ng-template>
+
+<!-- Modal Gallery -->
+<!-- <div class="modal fade" tabindex="-1" role="dialog" [ngClass]="{'show': isGalleryVisible}" style="display: block;" *ngIf="isGalleryVisible">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Gallery</h5>
+          <button type="button" class="close" (click)="closeGallery()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngFor="let imageUrl of tourImageList">
+            <img [src]="imageUrl" alt="Tour Image" style="width: 100%; height: auto; margin-bottom: 10px;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<div class="modal fade" tabindex="-1" role="dialog" [ngClass]="{'show': isGalleryVisible}" style="display: block;" *ngIf="isGalleryVisible">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Gallery</h5>
+        <button type="button" class="close" (click)="closeGallery()">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Display the current image -->
+        <div class="image-container">
+          <img [src]="tourImageList[currentImageIndex]" alt="Tour Image" style="width: 100%; height: auto; margin-bottom: 10px;" />
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="navigation-buttons">
+          <button type="button" class="btn btn-secondary" (click)="previousImage()">Previous</button>
+          <button type="button" class="btn btn-secondary" (click)="nextImage()">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

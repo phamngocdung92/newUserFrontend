@@ -42,6 +42,10 @@ export class TourDetailComponent implements OnInit {
   countRate!:number;
 
   itemsComment:number = 3;
+
+  tourImageList: string[] = [];
+  isGalleryVisible: boolean = false;
+   currentImageIndex: number = 0;
   
   constructor(
     private tourService: TourService,
@@ -171,6 +175,41 @@ export class TourDetailComponent implements OnInit {
     this.favoriteService.getByTour(this.id).subscribe(data => {
       this.totalLike = data as number;
     })
+  }
+  getTourImageList(id: number) {
+    this.tourService.getTourImageList(id).subscribe((data: string[]) => {
+      this.tourImageList = data;
+      this.currentImageIndex = 0;  // Reset to the first image
+      this.isGalleryVisible = true;  // Show the gallery
+    });
+  }
+
+  showGallery() {
+    console.log("show gallery");
+    this.isGalleryVisible = true;  
+  }
+
+  closeGallery() {
+    console.log("close gallery");
+    this.isGalleryVisible = false;
+  }
+
+  // Show the next image in the list
+  nextImage() {
+    if (this.currentImageIndex < this.tourImageList.length - 1) {
+      this.currentImageIndex++; // Move to the next image
+    } else {
+      this.currentImageIndex = 0; // Loop back to the first image if at the end
+    }
+  }
+
+  // Show the previous image in the list
+  previousImage() {
+    if (this.currentImageIndex > 0) {
+      this.currentImageIndex--; // Move to the previous image
+    } else {
+      this.currentImageIndex = this.tourImageList.length - 1; // Loop back to the last image if at the start
+    }
   }
 
   addCart(tourId: number, price: number) {

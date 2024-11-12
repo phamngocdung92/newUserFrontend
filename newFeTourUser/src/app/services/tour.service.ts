@@ -40,4 +40,7 @@ export class TourService {
   getByMultiCategory(id: number) {
     return this.httpClient.get(this.url+'/categories?'+'ids='+id);
   }
+  getTourImageList(id: number) {
+    return this.httpClient.get<string[]>(`${this.url}/getTourImages/${id}`);
+  }
 }

@@ -45,6 +45,15 @@ export class ByCategoryComponent implements OnInit {
 
   rates!: Rate[];
   countRate!: number;
+  imagesByCategory: { [key: number]: string } = {};
+  selectedImage: string = '';
+  // imagesByCategory: { [key: number]: string } = {
+  //   1: 'img/slider/home-3/home-banner/slide-9.jpg',   // Image for "Miền Bắc"
+  //   2: 'img/slider/home-3/home-banner/promotion-5.jpg', // Image for "Miền Trung"
+  //   3: 'img/slider/home-3/home-banner/promotion-4.jpg',   // Image for "Miền Nam"
+  //   4: 'img/slider/home-3/home-banner/sea.jpg',     // Image for "biển"
+  //   5: 'img/slider/home-3/home-banner/mountain.jpg' // Image for "núi"
+  // };
 
   constructor(
     private tourService: TourService,
@@ -70,6 +79,16 @@ export class ByCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    console.log(this.id); 
+    console.log("ảnh đây: ",this.imagesByCategory);
+    this.imagesByCategory = {
+      1: 'assets/img/slider/home-3/home-banner/1.jpg',   // Image for "Miền Bắc"
+      2: 'assets/img/slider/home-3/home-banner/2.jpg', // Image for "Miền Trung"
+      3: 'assets/img/slider/home-3/home-banner/3.jpg',   // Image for "Miền Nam"
+      4: 'assets/img/slider/home-3/home-banner/sea.jpg',     // Image for "biển"
+      5: 'assets/img/slider/home-3/home-banner/mountain.jpg' // Image for "núi"
+    };
+    this.selectedImage = this.imagesByCategory[this.id];
     this.getTours();
     this.getAllRate();
     this.getCategories();

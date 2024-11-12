@@ -37,4 +37,7 @@ export class TourService {
   getSuggest(categoryId: number, tourId: number) {
     return this.httpClient.get(this.url+'/suggest/'+categoryId+"/"+tourId);
   }
+  getByMultiCategory(id: number) {
+    return this.httpClient.get(this.url+'/categories?'+'ids='+id);
+  }
 }

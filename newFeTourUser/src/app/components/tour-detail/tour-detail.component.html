@@ -48,7 +48,7 @@
                                 <p>{{tour.description}}</p>
                             </div>
                             <div class="ps-product__shopping">
-                                <a class="ps-btn ps-btn--black" href="javascript:void(0);" (click)="addCart(tour.tourId, tour.price*(1 - tour.discount/100))">Thêm Giỏ Hàng</a>
+                                <a class="ps-btn ps-btn--black" [routerLink]="['/cart']" (click)="addCart(tour.tourId, tour.price*(1 - tour.discount/100))">Thêm Giỏ Hàng</a>
                                 <a href="javascript:void(0);" class="ps-btn ps-btn--black" (click)="getTourImageList(tour.tourId)">Xem Gallery</a>
                                 <div class="ps-product__actions">
                                     <a href="javascript:void(0);" (click)="toggleLike(tour.tourId)"><i style="color: #ffcc23;" class="icon-heart"></i></a> {{totalLike}} lượt thích

@@ -76,15 +76,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Số nhà<sup>*</sup>
+                                    <label>Số căn cước công dân<sup>*</sup>
                                     </label>
                                     <div class="form-group__content">
                                         <input
                                         class="form-control"
-                                        type="text"
+                                        type="number"
                                         formControlName="number"
-                                        [ngClass]="{'is-invalid':postForm.get('number')?.touched && postForm.get('number')?.invalid}" placeholder="Số nhà">
-                                        <small class="invalid-feedback">Hãy nhập số nhà của bạn</small>
+                                        [ngClass]="{'is-invalid':postForm.get('number')?.touched && postForm.get('number')?.invalid}" placeholder="Số CCCD">
+                                        <small class="invalid-feedback">Hãy nhập số căn cước công dân của bạn</small>
                                     </div>
                                 </div>
                                 <h3 class="mt-40"> Thông tin bổ sung</h3>
@@ -110,7 +110,7 @@
                                                 <tbody>
                                                     <tr *ngFor="let item of cartDetails, index as i">
                                                         <td>
-                                                            <a href="javascript:void(0);"> {{item.tour.name}} <br> × {{item.quantity}}</a>
+                                                            <a href="javascript:void(0);"> {{item.tour.name}} <br> cho {{item.quantity}} người</a>
                                                             <p>Thể loại:<strong> {{item.tour.category.categoryName}}</strong></p>
                                                         </td>
                                                         <td>{{item.price | currency:'VND'}}</td>
@@ -126,10 +126,10 @@
                                     </div>
                                     <p style="text-align: center;">Thanh tóa khi tới nơi</p>
                                     <a class="ps-btn ps-btn--fullwidth" href="javascript:void(0);" (click)="checkOut()">Xác nhận thanh toán</a>
-                                    <br>
+                                    <!-- <br>
                                     <p style="text-align: center;">OR</p>
                                     <p style="text-align: center;">Thanh toán online qua paypal</p>
-                                    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                                    <ngx-paypal [config]="payPalConfig"></ngx-paypal> -->
                                 </div>
                             </div>
                         </div>

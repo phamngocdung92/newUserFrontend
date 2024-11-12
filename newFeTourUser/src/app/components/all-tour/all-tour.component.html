@@ -85,7 +85,7 @@
                                         <div class="ps-product" *ngIf="item.quantity>0">
                                             <div class="ps-product__thumbnail">
                                                 <a [routerLink]="['/tour-detail/'+item.tourId]">
-                                                    <img [src]="item.image" alt="" />
+                                                    <img [src]="item.image" alt="" style="width: auto; height: 100px;"/>
                                                 </a>
                                                 <ul class="ps-product__actions">
                                                     <li><a href="javascript:void(0);" (click)="addCart(item.tourId, item.price*(1 - item.discount/100))" data-toggle="tooltip" data-placement="top" title="Thêm Giỏ Hàng"><i class="icon-bag2"></i></a></li>

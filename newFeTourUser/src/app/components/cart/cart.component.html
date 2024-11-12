@@ -70,6 +70,26 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="ps-section__footer" *ngIf="cartDetails.length>0">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12 ">
+                            <div class="ps-block--shopping-total">
+                                <div class="ps-block__header">
+                                    <h4 class="title">Thanh toán giỏ hàng</h4>
+                                </div>
+                                <div class="ps-block__header">
+                                    <p>Tổng tiền <span> {{amountReal | currency:'VND'}}</span></p>
+                                    <p>Tiết kiệm <span> {{discount | currency:'VND'}}</span></p>
+                                </div>
+                                <div class="ps-block__content">
+                                    <h3>Tổng tiền phải thanh toán <span> {{amount | currency:'VND'}}</span></h3>
+                                </div>
+                            </div><a class="ps-btn ps-btn--fullwidth" [routerLink]="['/checkout']">Thanh toán</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row mt-5 mb-5" *ngIf="cartDetails.length==0">
                     <div class="col-8 offset-2 text-center">
                         <h2 style="color: #fcb800;">Giỏ hàng trống</h2>
@@ -82,24 +102,7 @@
                 </div>
             </div>
 
-            <div class="ps-section__footer" *ngIf="cartDetails.length>0">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-12 ">
-                        <div class="ps-block--shopping-total">
-                            <div class="ps-block__header">
-                                <h4 class="title">Thanh toán giỏ hàng</h4>
-                            </div>
-                            <div class="ps-block__header">
-                                <p>Tổng tiền <span> {{amountReal | currency:'VND'}}</span></p>
-                                <p>Tiết kiệm <span> {{discount | currency:'VND'}}</span></p>
-                            </div>
-                            <div class="ps-block__content">
-                                <h3>Tổng tiền phải thanh toán <span> {{amount | currency:'VND'}}</span></h3>
-                            </div>
-                        </div><a class="ps-btn ps-btn--fullwidth" [routerLink]="['/checkout']">Thanh toán</a>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

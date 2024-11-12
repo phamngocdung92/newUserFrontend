@@ -21,8 +21,8 @@ export class CartComponent implements OnInit {
   discount!:number;
   amount!:number;
   amountReal!:number;
-  departureDate: { year: number, month: number, day: number } = { year: 2021, month: 11, day: 12 }; 
-  returnDate: { year: number, month: number, day: number } = { year: 2024, month: 11, day: 12 }; 
+  departureDate: { year: number, month: number, day: number } = { year: 2021, month: 11, day: 13 }; 
+  returnDate: { year: number, month: number, day: number } = { year: 2024, month: 11, day: 14 }; 
 
   constructor(
     private cartService: CartService,

@@ -195,6 +195,7 @@ export class CheckoutComponent implements OnInit {
         cancelButtonText: 'Không',
         confirmButtonText: 'Đặt'
       }).then((result) => {
+        if (result.isConfirmed) {
         let email = this.sessionService.getUser();
         this.cartService.getCart(email).subscribe(data => {
           this.cart = data as Cart;
@@ -213,7 +214,7 @@ export class CheckoutComponent implements OnInit {
                 'Chúc mừng bạn đã đặt chỗ thành công.',
                 'success'
               )
-              this.router.navigate(['/cart']);
+              this.router.navigate(['/']);
             }, error => {
               this.toastr.error('Lỗi server', 'Hệ thống');
             })
@@ -223,6 +224,7 @@ export class CheckoutComponent implements OnInit {
         }, error => {
           this.toastr.error('Lỗi server', 'Hệ thống');
         })
+      }
       })
 
     } else {

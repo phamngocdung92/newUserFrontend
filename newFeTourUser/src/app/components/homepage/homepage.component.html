@@ -2,11 +2,11 @@
     <div class="ps-home-banner ps-home-banner--1">
         <div class="ps-container">
             <div class="ps-section__left">
-                <a class="ps-collection" [routerLink]="['/by-category/1']"><img src="assets/img/slider/home-3/home-banner/1.jpg" height="415px" width="724px" alt=""></a>
+                <a class="ps-collection" [routerLink]="['/by-category/2']"><img src="assets/img/slider/home-3/home-banner/2.jpg" height="415px" width="700px" alt=""></a>
             </div>
             <div class="ps-section__right">
+                <a class="ps-collection" [routerLink]="['/by-category/1']"><img src="assets/img/slider/home-3/home-banner/1.jpg" height="193px" width="390" alt=""></a>
                 <a class="ps-collection" [routerLink]="['/by-category/3']"><img src="assets/img/slider/home-3/home-banner/3.jpg" height="193px" width="390" alt=""></a>
-                <a class="ps-collection" [routerLink]="['/by-category/2']"><img src="assets/img/slider/home-3/home-banner/2.jpg" height="193px" width="390" alt=""></a>
             </div>
         </div>
     </div>
@@ -54,11 +54,20 @@
     <div class="ps-home-ads">
         <div class="ps-container">
             <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 "><a class="ps-collection" href="javascript:void(0);"><img src="img/collection/home-1/4.jpg" style="height: 300px; width: 600px;" alt=""></a>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 " >
+                    <a class="ps-collection" [routerLink]="['/by-category/1']">
+                        <img src="img/collection/home-1/4.jpg" style="height: 300px; width: 600px;" alt="">
+                    </a>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 "><a class="ps-collection" href="javascript:void(0);"><img src="img/collection/home-1/5.jpg" style="height: 300px; width: 600px;" alt=""></a>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
+                    <a class="ps-collection" [routerLink]="['/by-category/4']">
+                        <img src="img/collection/home-1/5.jpg" style="height: 300px; width: 600px;" alt="">
+                    </a>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 "><a class="ps-collection" href="javascript:void(0);"><img src="img/collection/home-1/6.png" style="height: 300px; width: 600px;" alt=""></a>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
+                    <a class="ps-collection" [routerLink]="['/by-category/5']">
+                        <img src="img/collection/home-1/6.png" style="height: 300px; width: 600px;" alt="">
+                    </a>
                 </div>
             </div>
         </div>

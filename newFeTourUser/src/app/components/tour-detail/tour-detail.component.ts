@@ -37,7 +37,7 @@ export class TourDetailComponent implements OnInit {
   cartDetail!: CartDetail;
   cartDetails!: CartDetail[];
 
-  rates!:Rate[];
+  rates: Rate[] = [];
   rateAll!:Rate[];
   countRate!:number;
 
@@ -105,6 +105,9 @@ export class TourDetailComponent implements OnInit {
 
   getRates() {
     this.rateService.getByTour(this.id).subscribe(data=>{
+      if(this.rates == null){
+        this.rates = [];
+      }
       this.rates = data as Rate[];
     }, error=>{
       this.toastr.error('Lỗi hệ thống!', 'Hệ thống');
@@ -113,6 +116,9 @@ export class TourDetailComponent implements OnInit {
 
   getAllRate() {
     this.rateService.getAll().subscribe(data => {
+      if (this.rateAll == null) {
+        this.rateAll = [];
+      }
       this.rateAll = data as Rate[];
     })
   }
@@ -120,6 +126,9 @@ export class TourDetailComponent implements OnInit {
   getAvgRate(id: number): number {
     let avgRating: number = 0;
     this.countRate = 0;
+    if (this.rateAll == null) {
+      return 0;
+    }
     for (const item of this.rateAll) {
       if (item.tour.tourId === id) {
         avgRating += item.rating;
